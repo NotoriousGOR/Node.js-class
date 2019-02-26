@@ -1,0 +1,9 @@
+Requirements:
+
+1. The API listens to port 8000 and accepts incoming HTTP requests for CRUD operations
+2. The API allows a client to connect and modify users
+3. The API allows users to login and gives a token to users
+4. The API allows users to log out and voids token
+5. The API allows a signed in user to use their token to create a new check
+6. The signed user should be able to edit their checks and create up to 5
+7. In the background, workers perform checks once a minute and alerts users on status changes via SMS
