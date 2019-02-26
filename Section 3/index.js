@@ -4,7 +4,7 @@
  * Created Date: Tuesday, February 26th 2019, 7:57:41 am
  * Author: Gabriel Rosales
  * -----
- * Date Modified: 02/26/2019, 8:05:46
+ * Date Modified: 02/26/2019, 8:36:56
  * Modified By: Gabriel Rosales
  * -----
  * Copyright (c) 2019 Avuncular Digital
@@ -33,5 +33,30 @@
  * HISTORY:
  * Date      	By	Comments
  * ----------	---	----------------------------------------------------------
+ * 2019-02-26	GOR	This file is following along in Section 3 of Node.js Masterclass
  */
 
+// Dependencies
+const http = require('http');
+const url = require('url');
+
+const server = http.createServer(function(req,res) {
+    
+    // Get the URl and parse it
+    let parsedUrl = url.parse(req.url, true);
+
+    // Get the path
+    let path = parsedUrl.pathname;
+    let trimmedPath = path.replace(/^\/+|\/+$/g,'');
+
+    // Send the response
+    res.end('Hello World \n');
+
+    // Log the request
+    console.log('request received on path:'+ trimmedPath);
+    
+});
+
+server.listen(8000, function() {
+    console.log('The server is listening on 8000');
+})
